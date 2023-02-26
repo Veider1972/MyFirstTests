@@ -40,4 +40,19 @@ class EmailValidatorTest {
     fun emailValidator_NullEmail_ReturnsFalse() {
         assertFalse(EmailValidator.isValidEmail(null))
     }
+
+    @Test
+    fun emailValidator_AddedSpace_ReturnTrue(){
+        assertTrue(EmailValidator.isValidEmail("  veider@inbox.ru  "))
+    }
+
+    @Test
+    fun emailValidator_RussianLatter_returnFalse(){
+        assertFalse(EmailValidator.isValidEmail("vеidеr@inbоx.ru"))
+    }
+
+    @Test
+    fun emailValidator_CapitalLatter_returnTrue(){
+        assertTrue(EmailValidator.isValidEmail("VEIDER@INBOX.RU"))
+    }
 }
